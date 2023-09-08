@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meme creator</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <input type="file" id="image-input" accept="image/*">
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+        <input type="text" id="text-input" placeholder="Введите текст">
+        <button id="add-text-button">Add text</button>
+        <button id="download-button" style="display: none;">Download image</button>
+        <div id="text-controls" style="display: none;">
+            <label for="font-size">Font size:</label>
+            <input type="number" id="font-size" value="24">
+            <label for="font-weight">Font weight:</label>
+            <select id="font-weight">
+                <option value="normal">Normal</option>
+                <option value="bold">Bold</option>
+            </select>
+            <label for="text-color">Text color:</label>
+            <input type="color" id="text-color" value="#000000">
+            <button id="apply-changes-button">Apply changes</button>
+        </div>
+        <div id="text-list">
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

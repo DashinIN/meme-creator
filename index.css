@@ -1,0 +1,22 @@
+#canvas-container {
+    position: relative;
+}
+
+#canvas {
+    border: 3px solid #000;
+}
+
+#text-input, button {
+    margin: 20px;
+    padding: 20px;
+}
+
+.text-item {
+    border: 1px solid #ccc;
+   padding: 10px;
+    cursor: pointer;
+}
+
+.text-item.selected {
+    background-color: #f0f0f0;
+}
