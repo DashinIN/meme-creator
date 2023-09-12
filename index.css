@@ -1,22 +1,186 @@
-#canvas-container {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(252, 252, 252);
+}
+input {
+    font-family: inherit;
+    border-radius: 12px;
+    padding: 10px;
+}
+input[type=color] {
+    border: none;    
+    padding: 0;
+}
+
+.text-input {
+    padding: 20px 10px;
+}
+
+button {
+    font-family: inherit;
+    background-color: blueviolet;
+    border: 1px solid white;
+    border-radius: 12px;
+    color: white;
+    padding: 20px 10px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(91, 28, 150);
+}
+
+select {
+    font-family: inherit;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.drop-container {
     position: relative;
-}
-
-#canvas {
-    border: 3px solid #000;
-}
-
-#text-input, button {
-    margin: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
     padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px dashed #000000;
+    color: #050505;
+    cursor: pointer;
+    transition: all .2s ease-in-out, border .2s ease-in-out;
 }
+
+.drop-container p {
+    font-size: 0.8rem;
+    text-align: center;
+}
+  
+.drop-container:hover,
+.drop-container.drag-active {
+    background: #eee;
+    border-color: #111;
+}
+  
+.drop-container:hover .drop-title,
+.drop-container.drag-active .drop-title {
+    color: #222;
+}
+  
+.drop-title {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+}
+  
+input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: black;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+  
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: blueviolet;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-family: inherit;
+}
+  
+input[type=file]::file-selector-button:hover {
+    background: blueviolet;
+    background-color: rgb(91, 28, 150);
+}
+
+
+.canvas__container {
+    position: relative;
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.text-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.text-controls button {
+    padding: 10px;
+}
+
+.canvas {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #000000;
+    border-radius: 16px;
+}
+
 
 .text-item {
     border: 1px solid #ccc;
    padding: 10px;
     cursor: pointer;
 }
+.text-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 8px;
+}
+.text-item {
+    border-radius: 8px;
+    transition: all .2s ease;
+}
+
+.text-item:hover {
+    border-color: black;
+}
 
 .text-item.selected {
     background-color: #f0f0f0;
+    border-color: black;
+}
+
+
+@media (min-width: 1024px) {
+    .controls {
+        width: 60%;
+       
+    }
 }

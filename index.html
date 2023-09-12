@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meme creator</title>
+    <title>Генератор мемов</title>
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <input type="file" id="image-input" accept="image/*">
-    <div id="canvas-container">
-        <canvas id="canvas"></canvas>
-        <input type="text" id="text-input" placeholder="Введите текст">
-        <button id="add-text-button">Add text</button>
-        <button id="download-button" style="display: none;">Download image</button>
-        <div id="text-controls" style="display: none;">
-            <label for="font-size">Font size:</label>
-            <input type="number" id="font-size" value="24">
-            <label for="font-weight">Font weight:</label>
-            <select id="font-weight">
-                <option value="normal">Normal</option>
-                <option value="bold">Bold</option>
+    <label for="images" class="drop-container">
+        <span class="drop-title">Перетащите файл сюда</span>
+        или
+        <input type="file" class="image-input" accept="image/*" required>
+        <p>Для добавления надписи наберите нужный текст и нажмите "Добавить надпись". Добавленную надпись можно перетаскивать с помощью мыши. Для редактирования надписи выберете ее из списка надписей. Для сохранения изменений надписи нажмите "применить изменения". Чтобы удалить надпись нажмите правой кнопкой мыши на нее в списке надписей.</p>
+    </label>
+    <div class="canvas__container">
+        <canvas class="canvas"></canvas>
+        <div class="controls">
+            <input type="text" class="text-input" placeholder="Введите текст">
+            <button class="add-text-button">Добавить надпись</button>
+            <button class="download-button" style="display: none;">Скачать изображение</button>
+        </div>
+        <div class="text-controls" style="display: none;">
+            <label for="font-size">Размер шрифта:</label>
+            <input type="number" class="font-size" value="24">
+            <label for="font-weight">Начертание:</label>
+            <select class="font-weight">
+                <option value="normal">Обычный</option>
+                <option value="bold">Жирный</option>
             </select>
-            <label for="text-color">Text color:</label>
-            <input type="color" id="text-color" value="#000000">
-            <button id="apply-changes-button">Apply changes</button>
+            <label for="text-color">Цвет текста:</label>
+            <input type="color" class="text-color" value="#000000">
+            <button class="apply-changes-button">Применить изменения</button>
         </div>
-        <div id="text-list">
+        <div class="text-list">
         </div>
-    </div>
-    <script src="./script.js"></script>
+    </div>    
+    <script src="./js/script.js"></script>
+    <script src="./js/dropfile.js"></script>
 </body>
 </html>

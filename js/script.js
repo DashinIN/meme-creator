@@ -1,15 +1,15 @@
-const imageInput = document.getElementById('image-input');
-const canvas = document.getElementById('canvas');
+const imageInput = document.querySelector('.image-input');
+const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-const textInput = document.getElementById('text-input');
-const addTextButton = document.getElementById('add-text-button');
-const downloadButton = document.getElementById('download-button');
-const textControls = document.getElementById('text-controls');
-const fontSizeInput = document.getElementById('font-size');
-const fontWeightSelect = document.getElementById('font-weight');
-const textColorInput = document.getElementById('text-color');
-const applyChangesButton = document.getElementById('apply-changes-button');
-const textList = document.getElementById('text-list');
+const textInput = document.querySelector('.text-input');
+const addTextButton = document.querySelector('.add-text-button');
+const downloadButton = document.querySelector('.download-button');
+const textControls = document.querySelector('.text-controls');
+const fontSizeInput = document.querySelector('.font-size');
+const fontWeightSelect = document.querySelector('.font-weight');
+const textColorInput = document.querySelector('.text-color');
+const applyChangesButton = document.querySelector('.apply-changes-button');
+const textList = document.querySelector('.text-list');
 
 let uploadedImage;
 let textObjects = [];
@@ -48,36 +48,33 @@ const textObject = textObjects[selectedTextIndex];
 fontSizeInput.value = textObject.fontSize;
 fontWeightSelect.value = textObject.fontWeight;
 textColorInput.value = textObject.color;
-textControls.style.display = 'block';
+textControls.style.display = 'flex';
 applyChangesButton.style.display = 'block';
 textInput.value = textObject.text;
-textInput.focus();
-textInput.select();
 renderTextObjects();
 
 // Удалите выделение для всех элементов списка
 const textItems = document.querySelectorAll('.text-item');
-textItems.forEach((item) => {
-item.classList.remove('selected');
-});
-
-// Выделите выбранный элемент списка
-textItems[index].classList.add('selected');
-}
+    textItems.forEach((item) => {
+        item.classList.remove('selected');
+    });
+    // Выделите выбранный элемент списка
+    textItems[index].classList.add('selected');
+    }
 
 // Функция для удаления текстового объекта
 function deleteText(index) {
-textObjects.splice(index, 1);
-selectedTextIndex = -1;
-renderTextObjects();
-updateTextList();
-textControls.style.display = 'none';
-applyChangesButton.style.display = 'none';
+    textObjects.splice(index, 1);
+    selectedTextIndex = -1;
+    renderTextObjects();
+    updateTextList();
+    textControls.style.display = 'none';
+    applyChangesButton.style.display = 'none';
 
-// Удалите выделение для всех элементов списка
-const textItems = document.querySelectorAll('.text-item');
-textItems.forEach((item) => {
-item.classList.remove('selected');
+    // Удалите выделение для всех элементов списка
+    const textItems = document.querySelectorAll('.text-item');
+    textItems.forEach((item) => {
+    item.classList.remove('selected');
 });
 }
 
@@ -120,6 +117,9 @@ imageInput.addEventListener('change', (event) => {
     }
 });
 
+
+
+
 // Обработчик события для добавления текстовой надписи
 addTextButton.addEventListener('click', () => {
     const text = textInput.value;
@@ -141,7 +141,7 @@ addTextButton.addEventListener('click', () => {
 canvas.addEventListener('mousedown', (event) => {
     const mouseX = event.clientX - canvas.getBoundingClientRect().left;
     const mouseY = event.clientY - canvas.getBoundingClientRect().top;
-
+    
     for (let i = textObjects.length - 1; i >= 0; i--) {
         const textObject = textObjects[i];
         ctx.font = `${textObject.fontWeight} ${textObject.fontSize}px Arial`;
@@ -212,3 +212,6 @@ downloadButton.addEventListener('click', () => {
 
 // Инициализация списка текстовых надписей
 updateTextList();
+
+
+
